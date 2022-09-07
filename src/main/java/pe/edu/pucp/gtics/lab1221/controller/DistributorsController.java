@@ -47,9 +47,13 @@ public class DistributorsController {
         return "redirect:/distribuidoras/lista";
     };
 
-    public String borrarDistribuidora(){
-
-        return "";
+    @GetMapping("/borrar")
+    public String borrarDistribuidora(@RequestParam("id") int id){
+        Optional<Distributors> optionalDistribuidoras = distributorsRepository.findById(id);
+        if (optionalDistribuidoras.isPresent()) {
+            distributorsRepository.deleteById(id);
+        }
+        return "redirect:/distribuidoras/lista";
     };
 
 }
