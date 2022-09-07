@@ -4,10 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import pe.edu.pucp.gtics.lab1221.entity.Distributors;
 import pe.edu.pucp.gtics.lab1221.repository.DistributorsRepository;
 import org.springframework.ui.Model;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/distribuidoras")
@@ -22,8 +24,15 @@ public class DistributorsController {
         return "distribuidoras/lista";
     };
 
-    public String editarDistribuidoras(){
-        return "";
+    @GetMapping("/editar")
+    public String editarDistribuidoras(@RequestParam("id") int id, Model model){
+            Optional<Distributors> optionalDistributors = distributorsRepository.findById(id);
+            if (optionalDistributors.isPresent()){
+                Distributors distributors = optionalDistributors.get();
+                model.addAttribute("distributos", distributors);
+                return "distribuidoras/editar";
+            }else{
+            return "redirect:/distribuidoras/lista";}
     };
 
     @GetMapping("/nuevo")
