@@ -30,7 +30,7 @@ public class DistributorsController {
             Optional<Distributors> optionalDistributors = distributorsRepository.findById(id);
             if (optionalDistributors.isPresent()){
                 Distributors distributors = optionalDistributors.get();
-                model.addAttribute("distributos", distributors);
+                model.addAttribute("distributors", distributors);
                 return "distribuidoras/editar";
             }else{
             return "redirect:/distribuidoras/lista";}
