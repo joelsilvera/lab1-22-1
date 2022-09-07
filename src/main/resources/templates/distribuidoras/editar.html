@@ -54,18 +54,18 @@
                 <!-- Completar -->
                 <!-- Completar -->
             <form method="POST" th:action="@{'/distribuidoras/guardar'}" class="col-4" th:object="${distributors}">
-                    <input type="hidden" th:field="*{distributors.id}" />
+                    <input type="hidden" th:field="*{id}" />
                     <div class="mb-3">
                         <label class="form-label">Nombre</label>
-                        <input type="text" class="form-control" th:field="*{distributors.nombre}">
+                        <input type="text" class="form-control" th:field="*{nombre}">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Fundación</label>
-                        <input type="text" class="form-control" th:field="*{distributors.fundacion}">
+                        <input type="text" class="form-control" th:field="*{fundacion}">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Sede</label>
-                        <input type="text" class="form-control" th:field="*{distributors.sede}">
+                        <input type="text" class="form-control" th:field="*{sede}">
                     </div>
                     <a th:href="@{'/distribuidoras/lista'}" class="btn btn-danger">Cancelar</a>
                     <button type="submit" class="btn btn-primary">Guardar</button>
@@ -74,9 +74,7 @@
 
 
 
-                <a class="btn btn-danger">Cancelar</a>
-                <button type="submit" class="btn btn-primary">Guardar</button>
-            </form>
+
         </div>
         </main>
     </div>
