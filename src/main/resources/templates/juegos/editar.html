@@ -53,6 +53,29 @@
                     <!-- Completar -->
                     <!-- Completar -->
                     <!-- Completar -->
+                    <form method="POST" th:action="@{'/juegos/guardar'}" class="col-4" th:object="${juegos}">
+                        <input type="hidden" th:field="*{id}" />
+                        <div class="mb-3">
+                            <label class="form-label">Nombre</label>
+                            <input type="text" class="form-control" th:field="*{nombre}">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Descripción</label>
+                            <input type="text" class="form-control" th:field="*{descripcion}">
+                        </div>
+                        <label class="form-label">Plataforma</label>
+                        <div class="mb-3">
+                            <select id="plataformas" th:field="*{idplataforma}" class="form-select">
+                                <option th:each="plataformas:${plataformasList}" th:value="${plataformas.id}" th:text="${plataformas.nombre}"></option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Precio</label>
+                            <input type="text" class="form-control" th:field="*{precio}">
+                        </div>
+                        <a th:href="@{'/juegos/lista'}" class="btn btn-danger">Cancelar</a>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </form>
 
                     <a  class="btn btn-danger">Cancelar</a>
                     <button type="submit" class="btn btn-primary">Guardar</button>
