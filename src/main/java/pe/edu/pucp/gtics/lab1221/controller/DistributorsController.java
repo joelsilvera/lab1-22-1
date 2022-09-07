@@ -26,8 +26,9 @@ public class DistributorsController {
         return "";
     };
 
+    @GetMapping("/nuevo")
     public String nuevaDistribuidora(){
-        return "";
+        return "distribuidoras/nuevo";
     };
 
     public String guardarDistribuidora(){
